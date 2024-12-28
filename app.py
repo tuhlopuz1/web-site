@@ -1,5 +1,6 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
+from python-source.adapter import DBAdapter
 
 name = 'main'
 app = Flask(name)
@@ -14,6 +15,10 @@ def square(number):
     return str(int(number)**2)
   except:
     return jsonify("not a number");
+
+
+
+
 
 if name == 'main':
   app.run(debug=True)
