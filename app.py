@@ -27,7 +27,7 @@ def square(number):
 @app.route('/get-user-by-email/<email>')
 def get_user_by_mail(email):
   adapter = DBAdapter(_url,_key)
-  return adapter.get_user_by_email()
+  return adapter.get_user_by_email(email)
 
 @app.route('/get-user-by-login/<login>')
 def get_user_by_username(login):
