@@ -21,7 +21,7 @@ def square(number):
   try:
     return str(int(number)**2)
   except:
-    return jsonify("not a number");
+    return jsonify("not a number")
 
 
 @app.route('/get-user-by-email/<email>')
