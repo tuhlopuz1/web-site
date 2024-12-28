@@ -62,16 +62,18 @@ function log_in(data){
     console.log(data);
     
     if (Array.isArray(data) && data.length === 0){
-        message.innerText = 'Неправильный логин или пароль';
+        message.innerText = 'Wrong password or username';
         return 0;
     }
     pd = data[0]['password']
     console.log(pd);
     console.log(password.value)
     if (pd == password.value){
-        message.innerText = 'Успешный вход';
+        message.innerText = 'Success';
+        window.location.href = '../home_page/home.html';
+        localStorage.setItem('username', data[0]['login']);
     }
     else{
-        message.innerText = 'Неправильный логин или пароль';
+        message.innerText = 'Wrong password or username';
     }
 }

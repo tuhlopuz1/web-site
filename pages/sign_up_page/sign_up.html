@@ -3,32 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Форма регистрации</title>
+    <title>Sign up</title>
     <link rel="stylesheet" href="sign_up.css">
 </head>
 <body>
     <div class="container">
         <form class="register-form">
-            <h2>Регистрация</h2>
+            <h2>Create new account</h2>
             <div class="input-group">
-                <label for="name">Имя</label>
-                <input type="text" id="name" placeholder="Введите ваше имя" required>
+                <label for="name">Enter username</label>
+                <input type="text" id="name" placeholder="username" required>
             </div>
             <div class="input-group">
-                <label for="email">Электронная почта</label>
-                <input type="email" id="email" placeholder="Введите вашу электронную почту" required>
+                <label for="email">Enter your email</label>
+                <input type="email" id="email" placeholder="email" required>
             </div>
             <div class="input-group">
-                <label for="password">Пароль</label>
-                <input type="password" id="password" placeholder="Введите пароль" required>
+                <label for="password">Enter your password</label>
+                <input type="password" id="password" placeholder="password" required>
             </div>
             <div class="input-group">
-                <label for="confirm-password">Подтверждение пароля</label>
-                <input type="password" id="confirm-password" placeholder="Подтвердите пароль" required>
+                <label for="confirm-password">Password confirmation</label>
+                <input type="password" id="confirm-password" placeholder="confirm your password" required>
             </div>
-            <button type="submit">Зарегистрироваться</button>
-            <p class="message">Уже есть аккаунт? <a href="..\log_in_page\log_in.html">Войдите</a></p>
+            <p id="message"></p>
+            <button type="button" id="submit_button" onclick="buttonclick()">Sign up</button>
+            <p class="message">Already have an account? <a href="..\log_in_page\log_in.html">Log in</a></p>
         </form>
     </div>
+    <script src="sign_up.js"></script>
 </body>
 </html>

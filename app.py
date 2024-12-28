@@ -1,11 +1,16 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from python_source.adapter import DBAdapter
+from random import randint
+import os
+from dotenv import load_dotenv
 
 
-_url = 'https://txrvpoufhekskfpnyrhn.supabase.co'
+load_dotenv()
 
-_key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR4cnZwb3VmaGVrc2tmcG55cmhuIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTczNTQwNjQ5MSwiZXhwIjoyMDUwOTgyNDkxfQ.HV9JxDADslVOH1ZJNDYR-OrQdhv-5IJKXlJ1MyEuZYU'
+_url = os.getenv("URL")
+_key = os.getenv("KEY")
+
 
 
 
@@ -46,6 +51,13 @@ def register():
       login=data['login'],
       password=data['password']
     )
+
+@app.route('/send-verification-email', methods=['POST'])
+def send_email():
+  data = request.json
+  print(data)
+
+  return str(randint(10000, 99999))
 
 
 if name == 'main':
