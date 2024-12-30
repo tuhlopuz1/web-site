@@ -7,7 +7,7 @@ const message = document.getElementById('message');
 
 
 function buttonclick(){
-    
+    console.log(12312312313123)
     if (login.value.includes("@")){
         message.innerText = 'Invalid username'
         return 0;
@@ -21,9 +21,16 @@ function buttonclick(){
         return 0;
     }
     check_email = localStorage.getItem('ver_email');
-    if (check_email.toString() === email.value.toString()){
-        return 0;
+    console.log(check_email , email.value)
+    if (check_email != null){
+        if (check_email.toString() === email.value.toString()){
+            console.log('too many requests for this email');
+            message.innerText = 'Too many requests for this email. try a bit later'
+            return 0;
+        }
     }
+    localStorage.setItem('ver_email', email.value)
+    
     fetch('http://localhost:5000/get-user-by-email/'+email.value)
         .then(response => {
             if (!response.ok) {
@@ -64,6 +71,7 @@ function check_username(username){
                 return 0;
             }
             else{
+
                 go_to_email_verification(email.value);
             }
         })
@@ -73,7 +81,7 @@ function check_username(username){
 }
 
 function go_to_email_verification(email){
-    localStorage.setItem('ver_email', email)
+    
     const url = 'http://localhost:5000/send-verification-email'; // URL вашего API
     const data = email
     
@@ -93,7 +101,9 @@ function go_to_email_verification(email){
     .then(data => {
         console.log('Success:', data); // Обработка успешного ответа
         localStorage.setItem('cur_ver_code', data)
-        
+        localStorage.setItem('password', password.value)
+        localStorage.setItem('login', login.value)
+        window.location.href = '../verification_page/verification.html';
     })
     .catch(error => {
         console.error('Error:', error); // Обработка ошибок

@@ -7,9 +7,9 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 
 # Если измените эти области, удалите файл token.json.
-SCOPES = ['https://www.googleapis.com/auth/gmail.send']
 
 def send_verification_code(code, email):
+    SCOPES = ['https://www.googleapis.com/auth/gmail.send']
     creds = None
     # Файл token.json хранит токен доступа пользователя.
     if os.path.exists('token.json'):
@@ -38,4 +38,3 @@ def send_verification_code(code, email):
     service.users().messages().send(userId='me', body={'raw': raw_message}).execute()
     print('Письмо отправлено!')
 
-send_verification_code(11111, 'tuhlopuz1@gmail.com')

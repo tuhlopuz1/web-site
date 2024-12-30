@@ -1,5 +1,4 @@
-const username = document.getElementById('username');
-
-us = localStorage.getItem('username')
-
-username.innerText = us;
+document.getElementById('user-button').addEventListener('click', () => {
+    const dropdown = document.getElementById('dropdown-menu');
+    dropdown.classList.toggle('hidden');
+  });

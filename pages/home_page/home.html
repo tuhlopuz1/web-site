@@ -1,13 +1,51 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home page</title>
-    <link rel="stylesheet" href="home.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Website</title>
+  <link rel="stylesheet" href="home.css">
 </head>
 <body>
-<p id="username">sdf</p>
-<script src="home.js"></script>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">QuizMaster</div>
+    <div class="user-menu">
+      <button id="user-button">User</button>
+      <div id="dropdown-menu" class="dropdown hidden">
+        <a href="#">Settings</a>
+        <a href="#">Log Out</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <nav>
+      <ul>
+        <li><a href="./home.html">Home</a></li>
+        <li><a href="#my-quizzes">My Quizzes</a></li>
+        <li><a href="#search">Search</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <section id="home">
+      <h1>Popular Quizzes</h1>
+      <p>Here you can find the most popular quizzes!</p>
+    </section>
+    <section id="my-quizzes">
+      <h1>My Quizzes</h1>
+      <p>Manage your created quizzes here.</p>
+    </section>
+    <section id="search">
+      <h1>Search Quizzes</h1>
+      <p>Find quizzes by filters or name.</p>
+    </section>
+  </main>
+
+  <script src="home.js"></script>
 </body>
 </html>

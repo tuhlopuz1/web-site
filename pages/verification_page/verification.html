@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Верификация почты</title>
+    <title>Email verification</title>
     <link rel="stylesheet" href="verification.css">
 </head>
 <body>
     <div class="container">
-        <h1>Верификация почты</h1>
-        <p>Введите 5-значный код, отправленный на вашу почту:</p>
+        <h1>Email verification</h1>
+        <p>We sent 5-digit code to your email</p>
         <form id="verification-form">
-            <input type="text" maxlength="5" placeholder="Код" required>
-            <button type="button">Готово</button>
+            <input type="text" id="input" maxlength="5" placeholder="Enter your code" required>
+            <p id="message"></p>
+            <button type="button" onclick="buttonclick()">Ready</button>
         </form>
     </div>
+    <script src="verification.js"></script>
 </body>
 </html>

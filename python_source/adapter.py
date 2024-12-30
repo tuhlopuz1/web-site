@@ -20,8 +20,10 @@ class DBAdapter:
             'login': login,
             'password': password
         }
-        self.Client.table('users').insert(new_user).execute()
+        try:
+            self.Client.table('users').insert(new_user).execute()
+        except Exception as e:
+            print(e)
+        print(f'Success fully created user with {new_user}')
 
 adapter = DBAdapter(_url, _key)
-
-

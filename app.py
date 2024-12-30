@@ -4,8 +4,7 @@ from python_source.adapter import DBAdapter
 from random import randint
 import os
 from dotenv import load_dotenv
-
-
+from python_source.email_verification import send_verification_code
 load_dotenv()
 
 _url = os.getenv("URL")
@@ -42,22 +41,24 @@ def get_user_by_username(login):
 @app.route('/register-new-user', methods=['POST'])
 def register():
 
-    data = request.json  
-    
+  data = request.json  
+  print(data)
 
-    adapter = DBAdapter(_url, _key)
-    adapter.insert_new_user(
-      email=data['email'],
-      login=data['login'],
-      password=data['password']
-    )
+  adapter = DBAdapter(_url, _key)
+  adapter.insert_new_user(
+    email=data['email'],
+    login=data['login'],
+    password=data['password']
+  )
+  return '200'
 
 @app.route('/send-verification-email', methods=['POST'])
 def send_email():
   data = request.json
   print(data)
-
-  return str(randint(10000, 99999))
+  code = str(randint(10000, 99999))
+  send_verification_code(code, data)
+  return code
 
 
 if name == 'main':

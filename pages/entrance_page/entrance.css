@@ -1,21 +1,30 @@
 body {
+    font-family: Arial, sans-serif;
     display: flex;
-    justify-content: center; /* Центрирование по горизонтали */
-    align-items: center; /* Центрирование по вертикали */
-    height: 100vh; /* Высота вьюпорта */
-    margin: 0; /* Убираем отступы */
-    background-color: #f0f0f0; /* Цвет фона */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+.container {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 button {
-    padding: 15px 30px; /* Отступы внутри кнопки */
-    font-size: 16px; /* Размер шрифта */
-    color: white; /* Цвет текста */
-    background-color: #007bff; /* Цвет фона кнопки */
-    border: none; /* Убираем рамку */
-    border-radius: 5px; /* Закругленные углы */
-    cursor: pointer; /* Курсор при наведении */
-    transition: background-color 0.3s; /* Плавный переход цвета фона */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
 }
 button:hover {
-    background-color: #0056b3; /* Цвет фона при наведении */
+    background-color: #0056b3;
 }
