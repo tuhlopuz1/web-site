@@ -20,7 +20,10 @@ function buttonclick(){
         message.innerText = "Passwords don't match"
         return 0;
     }
-
+    check_email = localStorage.getItem('ver_email');
+    if (check_email.toString() === email.value.toString()){
+        return 0;
+    }
     fetch('http://localhost:5000/get-user-by-email/'+email.value)
         .then(response => {
             if (!response.ok) {
@@ -73,7 +76,7 @@ function go_to_email_verification(email){
     localStorage.setItem('ver_email', email)
     const url = 'http://localhost:5000/send-verification-email'; // URL вашего API
     const data = email
-    console.log(JSON.stringify(data))
+    
     fetch(url, {
         method: 'POST', // Метод запроса
         headers: {
@@ -89,6 +92,8 @@ function go_to_email_verification(email){
     })
     .then(data => {
         console.log('Success:', data); // Обработка успешного ответа
+        localStorage.setItem('cur_ver_code', data)
+        
     })
     .catch(error => {
         console.error('Error:', error); // Обработка ошибок

@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Форма авторизации</title>
-    <link rel="stylesheet" href="entrance.css">
+    <title>Верификация почты</title>
+    <link rel="stylesheet" href="verification.css">
 </head>
 <body>
-    <a href="..\sign_up_page\sign_up.html"><button>sign up</button></a>
-    <a href="..\log_in_page\log_in.html"><button>log in</button></a>
+    <div class="container">
+        <h1>Верификация почты</h1>
+        <p>Введите 5-значный код, отправленный на вашу почту:</p>
+        <form id="verification-form">
+            <input type="text" maxlength="5" placeholder="Код" required>
+            <button type="button">Готово</button>
+        </form>
+    </div>
 </body>
 </html>
