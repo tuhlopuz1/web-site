@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Website</title>
+  <link rel="stylesheet" href="constructor.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">QuizMaster</div>
+    <div class="user-menu">
+      <button id="user-button">User</button>
+      <div id="dropdown-menu" class="dropdown hidden">
+        <a href="#">Settings</a>
+        <a href="#">Log Out</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <nav>
+      <ul>
+        <li><a href="../home_page/home.html">Home</a></li>
+        <li><a href="./my_quizzes.html" id="my_quizzes">My Quizzes</a></li>
+        <li><a href="../search_page/search.html">Search</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <section id="quiz-builder">
+      <h1>Quiz constructor</h1>
+      <form id="quiz-form">
+        <div class="form-group">
+          <label for="quiz-title">Quiz name:</label>
+          <input type="text" id="quiz-title" required>
+        </div>
+        <div class="form-group">
+          <label for="quiz-description">Description (optional):</label>
+          <textarea id="quiz-description"></textarea>
+        </div>
+        <div id="questions-container"></div>
+        <button type="button" class="constructor_button" id="add-question">Add question</button>
+        <button type="submit" class="constructor_button" id="quiz-form">Save and publish quiz</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="constructor.js"></script>
+</body>
+</html>
