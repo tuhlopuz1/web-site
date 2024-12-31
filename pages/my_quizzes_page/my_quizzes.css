@@ -29,7 +29,6 @@ body {
 
 .user-menu {
   position: relative;
-  left: -2.1em;
 }
 
 .user-menu button {
@@ -47,7 +46,7 @@ body {
 
 .dropdown {
   position: absolute;
-  top: 2.5rem; /* Высота header */
+  top: 4rem; /* Высота header */
   right: 0;
   background-color: white;
   border: 1px solid #ccc;
@@ -97,12 +96,14 @@ body {
 .sidebar nav ul li {
   margin: 2rem 0; /* Используем rem для отступов */
 }
-#home{
+
+#my_quizzes{
   background-color: #333;
 }
-#home:hover{
+#my_quizzes:hover{
   background-color: #444;
 }
+
 .sidebar nav ul li a {
   text-decoration: none;
   color: white;
@@ -124,17 +125,9 @@ body {
 }
 
 .main-content section {
-  margin-bottom: 2rem; /* Используем rem для отступов */
+  margin-bottom: 4rem; /* Используем rem для отступов */
 }
 
-.playbutton{
-  background-color: #999;
-}
-
-section {
-  border: 2px solid #333; /* Ширина, стиль и цвет рамки */
-  padding: 1rem; /* Добавляем отступы внутри рамки */
-}
 /* Responsive Styles */
 @media (max-width: 768px) {
   .sidebar {
@@ -177,27 +170,4 @@ section {
   .main-content {
     padding: 1rem; /* Используем rem для отступов */
   }
-}
-
-.loader {
-  border: 8px solid #f3f3f3; /* Светлый фон */
-  border-top: 8px solid #666; /* Цвет спиннера */
-  border-radius: 50%;
-  width: 3rem; /* Ширина спиннера */
-  height: 3rem; /* Высота спиннера */
-  animation: spin 1s linear infinite; /* Анимация вращения */
-  position: fixed; /* Фиксированное положение */
-  top: 50%; /* Центр по вертикали */
-  left: 50%; /* Центр по горизонтали */
-  transform: translate(-50%, -50%); /* Центрирование */
-  z-index: 1000; /* Поверх других элементов */
-}
-
-.hidden {
-  display: none; 
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
 }
