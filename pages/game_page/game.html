@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Прохождение викторины</title>
+  <link rel="stylesheet" href="game.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">QuizMaster</div>
+    <button id="menu-button">Меню</button>
+    <div id="menu">
+      <button id="continue-quiz" class="hidden">Продолжить викторину</button>
+      <button id="exit-menu" class="hidden">Выйти в главное меню</button>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section id="quiz-container">
+      <h1 id="question"></h1>
+      <div id="answers-container"></div>
+      <button id="next-button" class="hidden">Далее</button>
+      <div id="result" class="hidden"></div>
+    </section>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
