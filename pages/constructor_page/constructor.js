@@ -3,6 +3,9 @@ document.getElementById('add-question').addEventListener('click', function() {
   const questionDiv = document.createElement('div');
   questionDiv.classList.add('question');
 
+  // Получаем количество вопросов для создания уникального имени
+  const questionCount = questionsContainer.children.length;
+
   questionDiv.innerHTML = `
     <div class="form-group">
       <label>Вопрос:</label>
@@ -17,20 +20,20 @@ document.getElementById('add-question').addEventListener('click', function() {
     <div class="form-group">
       <label>Варианты ответов:</label>
       <div class="answer">
-      <input type="radio" name="correct-answer" value="0" required>
         <input type="text" placeholder="Ответ 1" required>
+        <input type="radio" name="correct-answer-${questionCount}" value="0" required>
       </div>
       <div class="answer">
-      <input type="radio" name="correct-answer" value="1" required>
         <input type="text" placeholder="Ответ 2" required>
+        <input type="radio" name="correct-answer-${questionCount}" value="1" required>
       </div>
       <div class="answer">
-      <input type="radio" name="correct-answer" value="2" required>
         <input type="text" placeholder="Ответ 3" required>
+        <input type="radio" name="correct-answer-${questionCount}" value="2" required>
       </div>
       <div class="answer">
-      <input type="radio" name="correct-answer" value="3" required>
         <input type="text" placeholder="Ответ 4" required>
+        <input type="radio" name="correct-answer-${questionCount}" value="3" required>
       </div>
     </div>
     <button type="button" class="remove-question">Удалить этот вопрос</button>
@@ -96,7 +99,14 @@ document.getElementById('quiz-form').addEventListener('submit', function(event) 
       .findIndex(radio => radio.checked);
 
     // Получаем файл изображения
-    const imageFile = fileInput.files[0];
+    let imageFile = fileInput.files[0];
+    if (imageFile == undefined){
+      imageFile = 'None'
+    }
+    else{
+      imageFile = generate_file_name();
+
+    }
 
     questions.push({
       question: questionText,
@@ -116,8 +126,35 @@ document.getElementById('quiz-form').addEventListener('submit', function(event) 
   alert('Викторина сохранена! Проверьте консоль для данных.');
 });
 
-function upload_image(file){
-  const name = generate_file_name();
+function upload_image(file, name){
+  const url = 'http://localhost:5000/upload-image'; // URL вашего API
+  const data = {
+    
+  }
+  
+  fetch(url, {
+      method: 'POST', // Метод запроса
+      headers: {
+          'Content-Type': 'application/json' // Указываем тип содержимого
+      },
+      body: JSON.stringify(data) // Преобразуем объект в JSON-строку
+  })
+  .then(response => {
+      if (!response.ok) {
+          throw new Error('Network response was not ok');
+      }
+      return response.json(); // Преобразуем ответ в JSON
+  })
+  .then(data => {
+      console.log('Success:', data); // Обработка успешного ответа
+      localStorage.setItem('cur_ver_code', data)
+      localStorage.setItem('password', password.value)
+      localStorage.setItem('login', login.value)
+      window.location.href = '../verification_page/verification.html';
+  })
+  .catch(error => {
+      console.error('Error:', error); // Обработка ошибок
+  });
 
 }
 

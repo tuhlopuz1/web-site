@@ -62,12 +62,20 @@ def send_email():
   return code
 
 
-@app.route('/upload_image', methods=['POST'])
+@app.route('/upload-image', methods=['POST'])
 def upload_image():
   data = request.json
   print(data)
   adapter = QuizAdapter(_url, _key)
   response = adapter.upload_image(data["file"], data["name"])
+  return response
+
+@app.route('/upload-quiz', methods=['POST'])
+def upload_image():
+  data = request.json
+  print(data)
+  adapter = QuizAdapter(_url, _key)
+  response = adapter.upload_image(data)
   return response
 
 if name == 'main':
