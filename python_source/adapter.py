@@ -1,8 +1,6 @@
 from supabase import create_client, Client
 
-_url = 'https://txrvpoufhekskfpnyrhn.supabase.co'
 
-_key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR4cnZwb3VmaGVrc2tmcG55cmhuIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTczNTQwNjQ5MSwiZXhwIjoyMDUwOTgyNDkxfQ.HV9JxDADslVOH1ZJNDYR-OrQdhv-5IJKXlJ1MyEuZYU'
 
 class DBAdapter:
     def __init__(self, url, key):
@@ -26,4 +24,3 @@ class DBAdapter:
             print(e)
         print(f'Success fully created user with {new_user}')
 
-adapter = DBAdapter(_url, _key)

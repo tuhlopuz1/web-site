@@ -5,6 +5,7 @@ from random import randint
 import os
 from dotenv import load_dotenv
 from python_source.email_verification import send_verification_code
+from python_source.quiz_adapter import QuizAdapter
 load_dotenv()
 
 _url = os.getenv("URL")
@@ -60,6 +61,14 @@ def send_email():
   send_verification_code(code, data)
   return code
 
+
+@app.route('/upload_image', methods=['POST'])
+def upload_image():
+  data = request.json
+  print(data)
+  adapter = QuizAdapter(_url, _key)
+  response = adapter.upload_image(data["file"], data["name"])
+  return response
 
 if name == 'main':
   app.run(debug=True)
